@@ -86,9 +86,9 @@ int main() {
 	
 	
   while (1) {
-		ADC1->CR2 = (ADC1->CR2 & ~ADC_CR2_SWSTART_Msk) | (0x01 << ADC_CR2_SWSTART_Pos);
+		ADC1->CR2 = (ADC1->CR2 & ~ADC_CR2_SWSTART_Msk) | (0x01 << ADC_CR2_SWSTART_Pos);  
 
-		//((ADC->CSR & 0x02) != 0x02);
+		 // while ((ADC->CSR & 0x02) != 0x02) { // Waits until end of conversion bit is set high
 
 		
 			ADCconv = ADC1->DR;
