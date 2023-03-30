@@ -2,7 +2,7 @@
   C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c \
   C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   RTE\Device\STM32F407VGTx\stm32f4xx_hal_conf.h \
-  RTE\_Lab_Arm_Kit\RTE_Components.h \
+  RTE\_Target_1\RTE_Components.h \
   C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
   C:\KEIL_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
