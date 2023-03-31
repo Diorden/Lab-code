@@ -88,13 +88,13 @@ int main() {
   while (1) {
 		ADC1->CR2 = (ADC1->CR2 & ~ADC_CR2_SWSTART_Msk) | (0x01 << ADC_CR2_SWSTART_Pos);  
 
-		 // while ((ADC->CSR & 0x02) != 0x02) { // Waits until end of conversion bit is set high
+		 while ((ADC->CSR & 0x02) != 0x02) { // Waits until end of conversion bit is set high
 
 		
 			ADCconv = ADC1->DR;
 		  count_value = TIM1->CNT;
 			DAC->DHR12R1 = (DAC->DHR12R1 & ~DAC_DHR12R1_DACC1DHR_Msk) | ADC1->DR;  // Sends the ADC1 output to the DAC data reg
-		  snprintf(buffer, 10, "%d", count_value);
+		  snprintf(buffer, 10, "%f", ADCconv);
 		  PB_LCD_Clear();
 		  PB_LCD_WriteString(buffer, 10);
 			
