@@ -4,12 +4,15 @@
 #include "Board_LED.h"
 #include "PB_LCD_Drivers.h"
 
+#define RESISTOR_CURRENT 0.3e-6
+
 
 void initialiseGPIO(void);
 void EXTI9_5_IRQHandler (void);
 void LED_on (int num);
 void LED_off (int num);
 void initialiseLEDandButtonPorts(void);
+double calculate_resistance(double voltage);
 
 
 void initialiseLEDandButtonPorts() {
@@ -75,12 +78,18 @@ void EXTI9_5_IRQHandler (void) {
 	  GPIOD->BSRR = 0x1000;
 }
 
+double calculate_resistance(double voltage) {
+	double resistance = voltage / RESISTOR_CURRENT;
+	return resistance;
+}
+
 int main() {
-	double ADCconv = 12;
-	double voltage;
-	char buffer[33];
+	double ADC_measurement = 12;
+	double measured_voltage;
+	double resistance;
+	char buffer[8];
 	SystemCoreClockUpdate();
-	SysTick_Config(SystemCoreClock/2);
+	//SysTick_Config(SystemCoreClock/2);
 	initialiseLEDandButtonPorts();
 	initialiseGPIO();
 	NVIC_EnableIRQ(EXTI9_5_IRQn);
@@ -93,9 +102,10 @@ int main() {
 		while ((ADC->CSR & 0x02) != 0x02) {			// Waits until ADC end-of-conversion bit is set high
 		}
 		
-		ADCconv = ADC1->DR;  // Stores value of ADC
-		voltage = ADCconv / 1365;
-		snprintf(buffer, 10, "%f", voltage);
+		ADC_measurement = ADC1->DR;  // Stores value of ADC
+		measured_voltage = ADC_measurement / 1365;
+		resistance = calculate_resistance(measured_voltage);
+		snprintf(buffer, 8, "%f", measured_voltage);
 		PB_LCD_Clear();
 		PB_LCD_WriteString(buffer, 10);
 		
