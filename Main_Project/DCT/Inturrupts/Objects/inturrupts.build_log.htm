@@ -1,0 +1,197 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cameron Cross, University of York, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\TEMP\DCT\Inturrupts\inturrupts.uvprojx
+Project File Date:  04/26/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'D:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal.c...
+compiling LED_F4Discovery.c...
+D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c(379): warning: unused parameter 'Regulator' [-Wunused-parameter]
+void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
+                                     ^
+1 warning generated.
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_gpio.c...
+D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(215): warning: function 'HAL_NVIC_SystemReset' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(81): warning: In file included from...
+D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(29): warning: In file included from...
+./RTE/Device/STM32F407VGTx\stm32f4xx_hal_conf.h(399): warning: In file included from...
+D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_cortex.h(52): warning: padding struct 'MPU_Region_InitTypeDef' with 2 bytes to align 'BaseAddress' [-Wpadded]
+  uint32_t               BaseAddress;           /*!< Specifies the base address of the region to protect.                           */
+                         ^
+2 warnings generated.
+compiling stm32f4xx_hal_cortex.c...
+../../DCT/Inturrupts/PB_LCD_Drivers.c(30): warning: non-portable path to file '"stm32f4xx.h"'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include "STM32F4xx.h"
+         ^~~~~~~~~~~~~
+         "stm32f4xx.h"
+../../DCT/Inturrupts/PB_LCD_Drivers.c(35): warning: no previous prototype for function 'PB_LCD_Set_As_Output' [-Wmissing-prototypes]
+void PB_LCD_Set_As_Output(int bit, GPIO_TypeDef* port) {
+     ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(35): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_LCD_Set_As_Output(int bit, GPIO_TypeDef* port) {
+^
+static 
+../../DCT/Inturrupts/PB_LCD_Drivers.c(50): warning: no previous prototype for function 'PB_LCD_Set_As_Input' [-Wmissing-prototypes]
+void PB_LCD_Set_As_Input(int bit, GPIO_TypeDef* port, enum eTermType eTT) {
+     ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(50): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_LCD_Set_As_Input(int bit, GPIO_TypeDef* port, enum eTermType eTT) {
+^
+static 
+../../DCT/Inturrupts/PB_LCD_Drivers.c(66): warning: implicit conversion from 'unsigned int' to 'float' may lose precision [-Wimplicit-int-float-conversion]
+  volatile unsigned long x = (unsigned long)(compensation * (36 * delayInMicroSeconds >> 4));
+                                                          ~  ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../../DCT/Inturrupts/PB_LCD_Drivers.c(64): warning: no previous prototype for function 'PB_LCD_Microdelay' [-Wmissing-prototypes]
+void PB_LCD_Microdelay (unsigned int delayInMicroSeconds) {
+     ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(64): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_LCD_Microdelay (unsigned int delayInMicroSeconds) {
+^
+static 
+../../DCT/Inturrupts/PB_LCD_Drivers.c(83): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+uint8_t PB_LCD_IsBusy () {
+                      ^
+                       void
+../../DCT/Inturrupts/PB_LCD_Drivers.c(99): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  PB_LCD_Microdelay(LCD_DELAY_CONST); busy = GPIOD->IDR; 
+                                           ~ ~~~~~~~^~~
+../../DCT/Inturrupts/PB_LCD_Drivers.c(83): warning: no previous prototype for function 'PB_LCD_IsBusy' [-Wmissing-prototypes]
+uint8_t PB_LCD_IsBusy () {
+        ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(83): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint8_t PB_LCD_IsBusy () {
+^
+static 
+../../DCT/Inturrupts/PB_LCD_Drivers.c(127): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  unsigned int toWrite_High = (GPIOD->ODR & 0xFFFFFF0F) | (data & 0xF0);
+               ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(114): warning: no previous prototype for function 'PB_LCD_Write' [-Wmissing-prototypes]
+void PB_LCD_Write (enum eLCD_OP op, uint8_t data) {
+     ^
+../../DCT/Inturrupts/PB_LCD_Drivers.c(114): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PB_LCD_Write (enum eLCD_OP op, uint8_t data) {
+^
+static 
+10 warnings generated.
+compiling PB_LCD_Drivers.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_rcc.c...
+linking...
+Program Size: Code=7328 RO-data=620 RW-data=4 ZI-data=1636  
+".\Objects\inturrupts.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.MDK-Middleware.7.16.0.pack
+                Keil.MDK-Middleware.7.16.0
+                Middleware for Keil MDK-Professional and MDK-Plus
+   * Component: LED Version: 1.0.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.0.pack
+                Keil.STM32F4xx_DFP.2.17.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: STM32Cube Framework Version: 1.0.0
+   * Component: LED Version: 2.0.0
+   * Component: Classic Version: 1.8.1
+   * Component: Common Version: 1.8.1
+   * Component: Cortex Version: 1.8.1
+   * Component: GPIO Version: 1.8.1
+   * Component: PWR Version: 1.8.1
+   * Component: RCC Version: 1.8.1
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F407VGTx
+  ./RTE/_Target_1
+  D:/Users/camer/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  D:/Users/camer/AppData/Local/Arm/Packs/Keil/MDK-Middleware/7.16.0/Board
+  D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  D:/Users/camer/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.0/Drivers/STM32F4xx_HAL_Driver/Inc
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::Board Support:LED:1.0.0 (API)
+      Include file:  Board/Board_LED.h
+
+   * Component: ::Device:STM32Cube Framework:1.0.0 (API)
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil.STM32F4-Discovery::Board Support:LED:2.0.0
+      Source file:   MDK/Boards/ST/STM32F4-Discovery/Common/LED_F4Discovery.c
+
+   * Component: Keil::Device:STM32Cube Framework:Classic:1.8.1
+      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
+      Include file:  MDK/Templates_LL/Inc/main.h
+      Source file:   MDK/Templates_LL/Src/main.c
+      Source file:   MDK/Templates/Src/stm32f4xx_it.c
+      Include file:  CMSIS/Driver/Config/RTE_Device.h
+      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
+      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
+      Source file:   MDK/Templates/Src/main.c
+      Include file:  MDK/Templates/Inc/main.h
+
+   * Component: Keil::Device:STM32Cube HAL:Common:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+      Include file:  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+
+   * Component: Keil::Device:STM32Cube HAL:Cortex:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+
+   * Component: Keil::Device:STM32Cube HAL:GPIO:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+
+   * Component: Keil::Device:STM32Cube HAL:PWR:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+
+   * Component: Keil::Device:STM32Cube HAL:RCC:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+
+   * Component: Keil::Device:Startup:2.6.3
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
+      Source file:   MDK/Device/Source/ARM/STM32F40xxx_41xxx_OPT.s
+      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>
