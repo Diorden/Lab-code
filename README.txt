@@ -1,0 +1,1 @@
+Main_project folder is as deep as it is because uVision needs the folder names to be formatted as ..DCT/Inturrupts/ or it starts throwing errors.
